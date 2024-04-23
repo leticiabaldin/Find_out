@@ -1,3 +1,4 @@
+import 'package:find_out_flutter/pages/home_page.dart';
 import 'package:find_out_flutter/pages/login_page.dart';
 import 'package:find_out_flutter/pages/profile_page.dart';
 import 'package:find_out_flutter/pages/welcome_page.dart';
@@ -13,13 +14,19 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const ProfilePage();
+        return const WelcomePage();
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'login',
           builder: (BuildContext context, GoRouterState state) {
             return const LoginPage();
+          },
+        ),
+        GoRoute(
+          path: 'home',
+          builder: (BuildContext context, GoRouterState state) {
+            return const HomePage();
           },
         ),
         GoRoute(

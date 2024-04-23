@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../colors/colors_travel.dart';
 import '../widgets/app_text.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -59,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(12)),
               child: Container(
                 margin:
-                const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
+                    const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
                 child: Column(
                   children: [
                     TextFormField(
@@ -181,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.maxFinite,
                       height: 52,
                       child: ElevatedButton(
-                        onPressed: () => context.go('/'),
+                        onPressed: () => context.go('/home'),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppTravelColors.blueApp,
                             shape: RoundedRectangleBorder(
