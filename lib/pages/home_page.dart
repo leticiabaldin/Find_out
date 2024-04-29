@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:find_out_flutter/colors/colors_travel.dart';
 import 'package:find_out_flutter/widgets/bottom_navigation_bar_travel.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,57 @@ Future<void> _dialogBuilder(BuildContext context) {
     },
   );
 }
+
+List images = [
+  "assets/images/trip1.jpg",
+  "assets/images/trip2.jpg",
+  "assets/images/trip3.jpg",
+  "assets/images/trip4.jpg",
+];
+
+final List<Widget> imageSliders = images
+    .map((item) => Container(
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: [
+                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(200, 0, 0, 0),
+                              Color.fromARGB(0, 0, 0, 0)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        child: const Text(
+                          'Location',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ))
+    .toList();
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -116,6 +168,18 @@ class _HomePageState extends State<HomePage> {
                         color: AppTravelColors.blueApp,
                         fontWeight: FontWeight.w600,
                       ),
+                    ),
+                    const SizedBox(height: 12),
+                    CarouselSlider(
+                      options: CarouselOptions(
+                          aspectRatio: 1.75,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: false,
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 2000),
+                          clipBehavior: Clip.antiAliasWithSaveLayer),
+                      items: imageSliders,
                     ),
                   ],
                 ),
