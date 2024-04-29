@@ -1,79 +1,62 @@
-import 'package:find_out_flutter/colors/colors_travel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BottomNavigationBarTravel extends StatefulWidget {
-  const BottomNavigationBarTravel({super.key});
+import '../colors/colors_travel.dart';
+
+
+class BottomNavigatorBarTravel extends StatefulWidget {
+  const BottomNavigatorBarTravel({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarTravel> createState() =>
-      _BottomNavigationBarTravelState();
+  State<BottomNavigatorBarTravel> createState() =>
+      _BottomNavigatorBarTravelState();
 }
 
-class _BottomNavigationBarTravelState extends State<BottomNavigationBarTravel> {
+class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          backgroundColor: AppTravelColors.blueApp,
-          icon: Container(
-            alignment: Alignment.center,
-            padding: const EdgeInsets.only(top: 12),
-            child: IconButton(
-              icon: const Icon(
-                Icons.home_max_outlined,
-                size: 32,
-                color: Colors.white,
-              ),
+    return SizedBox(
+      height: 100,
+      child: BottomAppBar(
+        color: AppTravelColors.blueApp,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
               onPressed: () => context.go('/home'),
+              icon: const Icon(
+                Icons.home,
+                color: Colors.white,
+                size: 32,
+              ),
             ),
-          ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Container(
-            alignment: Alignment.center,
-            child: IconButton(
+            IconButton(
               icon: const Icon(
                 Icons.airplanemode_active_rounded,
-                size: 32,
                 color: Colors.white,
+                size: 32,
               ),
-              onPressed: () {},
+              onPressed: () => context.go('/travel'),
             ),
-          ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Container(
-            alignment: Alignment.center,
-            child: IconButton(
+            IconButton(
+              onPressed: () => context.go('/explorer'),
               icon: const Icon(
                 Icons.image_rounded,
-                size: 32,
                 color: Colors.white,
+                size: 32,
               ),
-              onPressed: () {},
             ),
-          ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Container(
-            alignment: Alignment.center,
-            child: IconButton(
+            IconButton(
+              onPressed: () => context.go('/profile'),
               icon: const Icon(
                 Icons.person,
-                size: 32,
                 color: Colors.white,
+                size: 32,
               ),
-              onPressed: () => context.go('/profile'),
             ),
-          ),
-          label: '',
+          ],
         ),
-      ],
+      ),
     );
   }
 }

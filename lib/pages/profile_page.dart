@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNavigationBarTravel(),
+      bottomNavigationBar: const BottomNavigatorBarTravel(),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
