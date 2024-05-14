@@ -29,6 +29,12 @@ List images = [
   "assets/images/trip3.jpg",
   "assets/images/trip4.jpg",
 ];
+List cards = [
+  "assets/images/trip1.jpg",
+  "assets/images/trip2.jpg",
+  "assets/images/trip3.jpg",
+  "assets/images/trip4.jpg",
+];
 
 final List<Widget> imageSliders = images
     .map((item) => Container(
@@ -74,6 +80,68 @@ final List<Widget> imageSliders = images
         ))
     .toList();
 
+final List<Widget> cardInfo = cards
+    .map(
+      (item) => Container(
+        margin: const EdgeInsets.all(5),
+        child: Card(
+          elevation: 3,
+          shape: const RoundedRectangleBorder(
+            side: BorderSide(
+              width: 0.3,
+              color: AppTravelColors.greyApp,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(5),
+            ),
+          ),
+          child: Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Image.asset(
+                  item,
+                  height: 100,
+                  width: double.maxFinite,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 20,
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Image.asset('assets/images/profile-image.png'),
+                      ),
+                      const SizedBox(width: 12),
+                      const Text(
+                        'Emma Watson',
+                        style: TextStyle(
+                          color: AppTravelColors.blueApp,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 260,
+                  height: 20,
+                  child: AppText(
+                    text: 'Lorem Ipsum Lorem',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    )
+    .toList();
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -99,6 +167,14 @@ class _HomePageState extends State<HomePage> {
             onPressed: () => context.go('/'),
             icon: const Icon(
               Icons.exit_to_app_outlined,
+              size: 32,
+              color: AppTravelColors.blueApp,
+            ),
+          ),
+          IconButton(
+            onPressed: () => context.go('/team'),
+            icon: const Icon(
+              Icons.info_outline,
               size: 32,
               color: AppTravelColors.blueApp,
             ),
@@ -160,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 56),
+                    const SizedBox(height: 32),
                     const Text(
                       'Explore other places',
                       style: TextStyle(
@@ -180,6 +256,42 @@ class _HomePageState extends State<HomePage> {
                               const Duration(milliseconds: 2000),
                           clipBehavior: Clip.antiAliasWithSaveLayer),
                       items: imageSliders,
+                    ),
+                    AppText(
+                      text: "Travel App",
+                      size: 28,
+                      color: AppTravelColors.blueApp,
+                    ),
+                    SizedBox(
+                      width: 360,
+                      child: AppText(
+                        text:
+                            "Mountain hikes give you an incredible sense of freedom along with endurance test.",
+                        size: 16,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    const Text(
+                      "See the people's experience",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: AppTravelColors.blueApp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    CarouselSlider(
+                      options: CarouselOptions(
+                          aspectRatio: 1.75,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: false,
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 2000),
+                          clipBehavior: Clip.antiAliasWithSaveLayer),
+                      items: cardInfo,
                     ),
                   ],
                 ),

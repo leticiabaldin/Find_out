@@ -2,6 +2,7 @@ import 'package:find_out_flutter/pages/explore_page.dart';
 import 'package:find_out_flutter/pages/home_page.dart';
 import 'package:find_out_flutter/pages/login_page.dart';
 import 'package:find_out_flutter/pages/profile_page.dart';
+import 'package:find_out_flutter/pages/team_page.dart';
 import 'package:find_out_flutter/pages/travel_page.dart';
 import 'package:find_out_flutter/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,12 @@ final GoRouter _router = GoRouter(
           builder: (BuildContext context, GoRouterState state) {
             return const ExplorePage();
           },
+        ),
+        GoRoute(
+          path: 'team',
+          builder: (BuildContext context, GoRouterState state) {
+            return const TeamPage();
+          },
         )
       ],
     ),
@@ -63,11 +70,9 @@ class MyApp extends StatelessWidget {
       routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme:
             ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
           background: const Color(0XFFFFFFFF),
-
         ),
       ),
       debugShowCheckedModeBanner: false,
