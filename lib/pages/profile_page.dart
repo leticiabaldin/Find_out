@@ -19,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
       bottomNavigationBar: const BottomNavigatorBarTravel(),
       body: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             //color: AppTravelColors.pink,
@@ -30,30 +31,55 @@ class _ProfilePageState extends State<ProfilePage> {
                 right: 12,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      AppLargeText(
-                        text: 'Letícia Baldin',
-                        color: Colors.black54,
-                      ),
+                      AppLargeText(text: "Profile"),
                       const SizedBox(width: 50),
-                      const CircleAvatar(
-                        radius: 45, // Image radius
+                    ],
+                  ),
+                  AppText(
+                    text: "See your informations",
+                    size: 24,
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  const Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 32, // Image radius
                         foregroundImage:
                             AssetImage("assets/images/profile-image.png"),
                       ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Letícia Baldin',
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      )
                     ],
+                  ),
+                  const SizedBox(
+                    height: 12,
                   ),
                   Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
                       // margin: const EdgeInsets.only(left: 20),
                       child: SizedBox(
-                        width: 250,
+                        width: 320,
                         child: AppText(
                           text:
-                              "Eu sou uma pesssoa que ama viajar para Montanhas e meu sonho é conhecer Mykhonos na Grécia. Adoro compartilhar minhas experiências nas redes socais!",
+                              "I'm excited to share my adventures, travel tips, and recommendations with all of you. I also look forward to learning from your experiences and finding inspiration for my future travels. Let's embark on this journey together and make unforgettable memories around the world!",
                           size: 16,
                         ),
                       ),
@@ -62,30 +88,64 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(
                     height: 16,
                   ),
-                  SizedBox(
-                    height: 48,
-                    width: 272,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 72,
-                          vertical: 12,
-                        ),
-                        backgroundColor: AppTravelColors.blueApp,
-                      ),
-                      child: const Text(
-                        'MINHAS VIAGENS',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
+                  const SizedBox(
+                    height: 12,
                   ),
+                  AppText(
+                    text: "My favorite Countries:",
+                    size: 24,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      CircleAvatar(
+                        radius: 28,
+                        backgroundImage:
+                            AssetImage('assets/images/flag-grecia.png'),
+                      ),
+                      CircleAvatar(
+                        radius: 28,
+                        backgroundImage:
+                            AssetImage('assets/images/flag-brasil.webp'),
+                      ),
+                      CircleAvatar(
+                        radius: 28,
+                        backgroundImage:
+                            AssetImage('assets/images/flag-lonres.avif'),
+                      ),
+                      CircleAvatar(
+                        radius: 28,
+                        backgroundImage:
+                            AssetImage('assets/images/flag-italia.png'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 28,
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Row(
+                        //mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'See all my recents trips here',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                decoration: TextDecoration.underline,
+                                color: AppTravelColors.blueApp),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                            color: AppTravelColors.blueApp,
+                          )
+                        ],
+                      ))
                 ],
               ),
             ),

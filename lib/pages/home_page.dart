@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:find_out_flutter/colors/colors_travel.dart';
 import 'package:find_out_flutter/widgets/bottom_navigation_bar_travel.dart';
@@ -95,45 +96,46 @@ final List<Widget> cardInfo = cards
               Radius.circular(5),
             ),
           ),
-          child: Expanded(
+          child: SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
                   item,
                   height: 100,
-                  width: double.maxFinite,
+                  width: double.infinity,
                   fit: BoxFit.cover,
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 8,
-                    horizontal: 20,
-                  ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        child: Image.asset('assets/images/profile-image.png'),
-                      ),
-                      const SizedBox(width: 12),
-                      const Text(
-                        'Emma Watson',
-                        style: TextStyle(
-                          color: AppTravelColors.blueApp,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
+                Card(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 20,
+                    ),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          child: Image.asset('assets/images/profile-image.png'),
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 12),
+                        const Text(
+                          'Emma Watson',
+                          style: TextStyle(
+                            color: AppTravelColors.blueApp,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 260,
-                  height: 20,
-                  child: AppText(
-                    text: 'Lorem Ipsum Lorem',
-                  ),
-                ),
+                const Card(
+                    child: Text(
+                  'My experience with my travel was amazing! I met old friends and find new places.',
+                  style: TextStyle(fontSize: 16),
+                  maxLines: 10,
+                )),
               ],
             ),
           ),
@@ -257,8 +259,11 @@ class _HomePageState extends State<HomePage> {
                           clipBehavior: Clip.antiAliasWithSaveLayer),
                       items: imageSliders,
                     ),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     AppText(
-                      text: "Travel App",
+                      text: "About Trips",
                       size: 28,
                       color: AppTravelColors.blueApp,
                     ),
@@ -271,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(
-                      height: 32,
+                      height: 24,
                     ),
                     const Text(
                       "See the people's experience",
@@ -284,13 +289,13 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 12),
                     CarouselSlider(
                       options: CarouselOptions(
-                          aspectRatio: 1.75,
-                          enlargeCenterPage: false,
-                          scrollDirection: Axis.horizontal,
-                          autoPlay: false,
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 2000),
-                          clipBehavior: Clip.antiAliasWithSaveLayer),
+                        aspectRatio: 1.75,
+                        enlargeCenterPage: false,
+                        scrollDirection: Axis.horizontal,
+                        autoPlay: false,
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 2000),
+                      ),
                       items: cardInfo,
                     ),
                   ],

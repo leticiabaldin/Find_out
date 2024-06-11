@@ -1,3 +1,4 @@
+import 'package:find_out_flutter/pages/create_account_page.dart';
 import 'package:find_out_flutter/pages/explore_page.dart';
 import 'package:find_out_flutter/pages/home_page.dart';
 import 'package:find_out_flutter/pages/login_page.dart';
@@ -47,13 +48,19 @@ final GoRouter _router = GoRouter(
         GoRoute(
           path: 'explorer',
           builder: (BuildContext context, GoRouterState state) {
-            return const ExplorePage();
+            return const ExplorerPage();
           },
         ),
         GoRoute(
           path: 'team',
           builder: (BuildContext context, GoRouterState state) {
             return const TeamPage();
+          },
+        ),
+        GoRoute(
+          path: 'createAccount',
+          builder: (BuildContext context, GoRouterState state) {
+            return const CreateAccountPage();
           },
         )
       ],
