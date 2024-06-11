@@ -106,36 +106,33 @@ final List<Widget> cardInfo = cards
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
-                Card(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 20,
-                    ),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          child: Image.asset('assets/images/profile-image.png'),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 20,
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Image.asset('assets/images/profile-image.png'),
+                      ),
+                      const SizedBox(width: 12),
+                      const Text(
+                        'Emma Watson',
+                        style: TextStyle(
+                          color: AppTravelColors.blueApp,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(width: 12),
-                        const Text(
-                          'Emma Watson',
-                          style: TextStyle(
-                            color: AppTravelColors.blueApp,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                const Card(
-                    child: Text(
+                const Text(
                   'My experience with my travel was amazing! I met old friends and find new places.',
                   style: TextStyle(fontSize: 16),
                   maxLines: 10,
-                )),
+                ),
               ],
             ),
           ),
