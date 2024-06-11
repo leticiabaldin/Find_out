@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:find_out_flutter/colors/colors_travel.dart';
 import 'package:find_out_flutter/widgets/bottom_navigation_bar_travel.dart';
@@ -95,14 +96,14 @@ final List<Widget> cardInfo = cards
               Radius.circular(5),
             ),
           ),
-          child: Expanded(
+          child: SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
                   item,
                   height: 100,
-                  width: double.maxFinite,
+                  width: double.infinity,
                   fit: BoxFit.cover,
                 ),
                 Container(
@@ -127,12 +128,14 @@ final List<Widget> cardInfo = cards
                     ],
                   ),
                 ),
-                Container(
-                  width: 260,
-                  height: 20,
-                  child: AppText(
-                    text: 'Lorem Ipsum Lorem',
-                  ),
+                const Flexible(
+                  child: AutoSizeText(
+                    'Lorem Ipsum Lorem',
+                    style: TextStyle(fontSize: 16),
+                    maxLines: 10,
+                    minFontSize: 12,
+                    overflow: TextOverflow.visible,
+                  )
                 ),
               ],
             ),
@@ -141,7 +144,6 @@ final List<Widget> cardInfo = cards
       ),
     )
     .toList();
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
