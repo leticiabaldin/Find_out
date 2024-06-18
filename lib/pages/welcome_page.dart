@@ -65,9 +65,9 @@ class WelcomePage extends StatelessWidget {
                   child: const Text(
                     'GET STARTED',
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
                   ),
                 ),
               ),

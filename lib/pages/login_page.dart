@@ -16,6 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool _isObscure = true;
+
   @override
   Future<void> login() async {
     final fireAuth = FirebaseAuth.instance;
@@ -44,6 +46,12 @@ class _LoginPageState extends State<LoginPage> {
 
   void goToHome() {
     context.go('/home');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscure = true;
   }
 
   Widget build(BuildContext context) {
@@ -138,16 +146,20 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 32),
                     TextFormField(
                       controller: passwordController,
-                      obscureText: true,
+                      obscureText: _isObscure,
                       textInputAction: TextInputAction.go,
                       cursorColor: AppTravelColors.blueApp,
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.remove_red_eye,
-                            color: AppTravelColors.blueApp,
-                          ),
+                          icon: _isObscure
+                              ? const Icon(Icons.remove_red_eye_rounded)
+                              : const Icon(Icons.remove_red_eye_outlined),
+                          color: Colors.grey,
+                          onPressed: () {
+                            setState(() {
+                              _isObscure = !_isObscure;
+                            });
+                          },
                         ),
                         fillColor: AppTravelColors.greyApp,
                         //filled: true,
@@ -225,9 +237,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: const Text(
                           'LOG IN',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white),
                         ),
                       ),
                     ),

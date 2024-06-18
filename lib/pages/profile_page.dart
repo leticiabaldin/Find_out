@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../colors/colors_travel.dart';
@@ -13,6 +14,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  getName() {
+    final fireAuth = FirebaseAuth.instance;
+    final user = fireAuth.currentUser;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

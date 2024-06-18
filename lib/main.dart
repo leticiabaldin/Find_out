@@ -83,12 +83,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: _router,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
-          background: const Color(0XFFFFFFFF),
-        ),
-      ),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -133,7 +133,7 @@ final List<Widget> cardInfo = cards
                   child: Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: AutoSizeText(
-                      'My experience with my travel was amazing! I met old friends and find new places.',
+                      'Amazing experience!',
                       style: TextStyle(fontSize: 16),
                       maxLines: 10,
                       minFontSize: 12,
@@ -148,6 +148,7 @@ final List<Widget> cardInfo = cards
       ),
     )
     .toList();
+
 class _HomePageState extends State<HomePage> {
   late final FirebaseAuth fireAuth;
   late User? user;
@@ -166,17 +167,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.5,
-        titleSpacing:
-            -34, // Adicione esta linha para alinhar o texto completamente à esquerda
         title: Align(
-        alignment: Alignment.topLeft,
-        child: Text(
-          'Hi, ${user?.displayName ?? "Letícia Baldin"}',
-          style: TextStyle(
-            color: AppTravelColors.blueApp,
-            fontWeight: FontWeight.w500,
+          alignment: Alignment.topLeft,
+          child: Text(
+            'Hi, ${user?.displayName ?? "Letícia Baldin"}',
+            style: const TextStyle(
+              color: AppTravelColors.blueApp,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
         ),
         actions: [
           IconButton(
@@ -245,9 +244,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Add New Travel',
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
                           ),
                         ),
                       ],
