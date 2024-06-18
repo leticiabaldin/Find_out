@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:find_out_flutter/colors/colors_travel.dart';
 import 'package:find_out_flutter/widgets/bottom_navigation_bar_travel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../widgets/app_large_text.dart';
@@ -129,13 +130,16 @@ final List<Widget> cardInfo = cards
                   ),
                 ),
                 const Flexible(
-                  child: AutoSizeText(
-                    'Lorem Ipsum Lorem',
-                    style: TextStyle(fontSize: 16),
-                    maxLines: 10,
-                    minFontSize: 12,
-                    overflow: TextOverflow.visible,
-                  )
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: AutoSizeText(
+                      'My experience with my travel was amazing! I met old friends and find new places.',
+                      style: TextStyle(fontSize: 16),
+                      maxLines: 10,
+                      minFontSize: 12,
+                      overflow: TextOverflow.visible,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -145,6 +149,16 @@ final List<Widget> cardInfo = cards
     )
     .toList();
 class _HomePageState extends State<HomePage> {
+  late final FirebaseAuth fireAuth;
+  late User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    fireAuth = FirebaseAuth.instance;
+    user = fireAuth.currentUser;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,15 +168,15 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.5,
         titleSpacing:
             -34, // Adicione esta linha para alinhar o texto completamente à esquerda
-        title: const Align(
-          alignment: Alignment.topLeft,
-          child: Text(
-            'Hi, Letícia Baldin!',
-            style: TextStyle(
-              color: AppTravelColors.blueApp,
-              fontWeight: FontWeight.w500,
-            ),
+        title: Align(
+        alignment: Alignment.topLeft,
+        child: Text(
+          'Hi, ${user?.displayName ?? "Letícia Baldin"}',
+          style: TextStyle(
+            color: AppTravelColors.blueApp,
+            fontWeight: FontWeight.w500,
           ),
+        ),
         ),
         actions: [
           IconButton(
@@ -259,8 +273,11 @@ class _HomePageState extends State<HomePage> {
                           clipBehavior: Clip.antiAliasWithSaveLayer),
                       items: imageSliders,
                     ),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     AppText(
-                      text: "Travel App",
+                      text: "About Trips",
                       size: 28,
                       color: AppTravelColors.blueApp,
                     ),
@@ -273,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(
-                      height: 32,
+                      height: 24,
                     ),
                     const Text(
                       "See the people's experience",
@@ -286,13 +303,13 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 12),
                     CarouselSlider(
                       options: CarouselOptions(
-                          aspectRatio: 1.75,
-                          enlargeCenterPage: false,
-                          scrollDirection: Axis.horizontal,
-                          autoPlay: false,
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 2000),
-                          clipBehavior: Clip.antiAliasWithSaveLayer),
+                        aspectRatio: 1.75,
+                        enlargeCenterPage: false,
+                        scrollDirection: Axis.horizontal,
+                        autoPlay: false,
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 2000),
+                      ),
                       items: cardInfo,
                     ),
                   ],

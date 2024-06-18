@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +13,39 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
+  Future<void> login() async {
+    final fireAuth = FirebaseAuth.instance;
+    final email = emailController.text.trim();
+    final password = passwordController.text;
+
+    try {
+      final credentials = await fireAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      goToHome();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Verifique suas credenciais ou crie uma conta.',
+          ),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(milliseconds: 3000),
+        ),
+      );
+    }
+  }
+
+  void goToHome() {
+    context.go('/home');
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -61,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: emailController,
                       textInputAction: TextInputAction.go,
                       cursorColor: AppTravelColors.blueApp,
                       decoration: InputDecoration(
@@ -103,6 +137,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 32),
                     TextFormField(
+                      controller: passwordController,
+                      obscureText: true,
                       textInputAction: TextInputAction.go,
                       cursorColor: AppTravelColors.blueApp,
                       decoration: InputDecoration(
@@ -179,7 +215,9 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.maxFinite,
                       height: 52,
                       child: ElevatedButton(
-                        onPressed: () => context.go('/home'),
+                        onPressed: () {
+                          login();
+                        },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppTravelColors.blueApp,
                             shape: RoundedRectangleBorder(
