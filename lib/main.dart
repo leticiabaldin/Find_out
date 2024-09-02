@@ -1,3 +1,5 @@
+import 'package:find_out_flutter/pages/add_destination_travel_page.dart';
+import 'package:find_out_flutter/pages/share_travel_page.dart';
 import 'package:find_out_flutter/pages/create_account_page.dart';
 import 'package:find_out_flutter/pages/explore_page.dart';
 import 'package:find_out_flutter/pages/home_page.dart';
@@ -50,6 +52,18 @@ final GoRouter _router = GoRouter(
           path: 'travel',
           builder: (BuildContext context, GoRouterState state) {
             return const TravelPage();
+          },
+        ),
+        GoRoute(
+          path: 'share',
+          builder: (BuildContext context, GoRouterState state) {
+            return const AddTravelPage();
+          },
+        ),
+        GoRoute(
+          path: 'addDestination',
+          builder: (BuildContext context, GoRouterState state) {
+            return const AddDestinationPage();
           },
         ),
         GoRoute(

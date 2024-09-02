@@ -76,9 +76,11 @@ class _ExplorerPageState extends State<ExplorerPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppLargeText(text: "Explorer Page"),
+                      SizedBox(height: 10),
                       AppText(
                         text: "My Trips",
-                        size: 30,
+                        size: 16,
+                        color: Color(0xFF737373),
                       ),
                     ],
                   )

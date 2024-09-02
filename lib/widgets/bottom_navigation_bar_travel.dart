@@ -39,6 +39,14 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               onPressed: () => context.go('/travel'),
             ),
             IconButton(
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 32,
+              ),
+              onPressed: () => context.go('/share'),
+            ),
+            IconButton(
               onPressed: () => context.go('/explorer'),
               icon: const Icon(
                 Icons.image_rounded,

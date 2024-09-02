@@ -92,66 +92,57 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 12,
+                  ),
+                  AppText(
+                    text: "My Trips",
+                    size: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
                   ),
                   const SizedBox(
                     height: 12,
                   ),
                   AppText(
-                    text: "My favorite Countries:",
+                    text: "Collect Memories",
                     size: 24,
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 0,
                   ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CircleAvatar(
-                        radius: 28,
-                        backgroundImage:
-                            AssetImage('assets/images/flag-grecia.png'),
-                      ),
-                      CircleAvatar(
-                        radius: 28,
-                        backgroundImage:
-                            AssetImage('assets/images/flag-brasil.webp'),
-                      ),
-                      CircleAvatar(
-                        radius: 28,
-                        backgroundImage:
-                            AssetImage('assets/images/flag-lonres.avif'),
-                      ),
-                      CircleAvatar(
-                        radius: 28,
-                        backgroundImage:
-                            AssetImage('assets/images/flag-italia.png'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 28,
-                  ),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Row(
-                        //mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'See all my recents trips here',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                decoration: TextDecoration.underline,
-                                color: AppTravelColors.blueApp),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 0.0),
+                    padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 22.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'England',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700,
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                            color: AppTravelColors.blueApp,
-                          )
-                        ],
-                      ))
+                        ),
+                        Icon(
+                          Icons.airplane_ticket,
+                          size: 24.0,
+                          color: Colors.grey[600],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

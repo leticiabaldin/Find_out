@@ -32,9 +32,10 @@ class _TravelPageState extends State<TravelPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AppLargeText(text: "Search page"),
+                  SizedBox(height: 10),
                   AppText(
                     text: "Find trips and profiles",
-                    size: 24,
+                    size: 16,
                   ),
                   const SizedBox(
                     height: 16,
