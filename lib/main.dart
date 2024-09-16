@@ -1,10 +1,12 @@
 import 'package:find_out_flutter/pages/add_destination_travel_page.dart';
+import 'package:find_out_flutter/pages/destination_selected_page.dart';
 import 'package:find_out_flutter/pages/share_travel_page.dart';
 import 'package:find_out_flutter/pages/create_account_page.dart';
 import 'package:find_out_flutter/pages/explore_page.dart';
 import 'package:find_out_flutter/pages/home_page.dart';
 import 'package:find_out_flutter/pages/login_page.dart';
 import 'package:find_out_flutter/pages/profile_page.dart';
+import 'package:find_out_flutter/pages/success_page.dart';
 import 'package:find_out_flutter/pages/team_page.dart';
 import 'package:find_out_flutter/pages/travel_page.dart';
 import 'package:find_out_flutter/pages/welcome_page.dart';
@@ -67,6 +69,12 @@ final GoRouter _router = GoRouter(
           },
         ),
         GoRoute(
+          path: 'destinationSelected',
+          builder: (BuildContext context, GoRouterState state) {
+            return const DestinationSelectedPage();
+          },
+        ),
+        GoRoute(
           path: 'explorer',
           builder: (BuildContext context, GoRouterState state) {
             return const ExplorerPage();
@@ -82,6 +90,12 @@ final GoRouter _router = GoRouter(
           path: 'createAccount',
           builder: (BuildContext context, GoRouterState state) {
             return const CreateAccountPage();
+          },
+        ),
+        GoRoute(
+          path: 'success',
+          builder: (BuildContext context, GoRouterState state) {
+            return const SuccessPage();
           },
         )
       ],
