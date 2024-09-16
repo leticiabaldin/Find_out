@@ -76,7 +76,7 @@ class _TravelPageState extends State<TravelPage> {
                     ),
                   ),
                   AppText(
-                    text: "Most viwed profiles:",
+                    text: "Most viwed countries:",
                     size: 24,
                   ),
                 ],
@@ -85,48 +85,40 @@ class _TravelPageState extends State<TravelPage> {
           ),
           Expanded(
             child: ListView(
-              children: const [
-                TravelTile(
-                  name: 'Barbara Miller',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-6.avif'),
-                ),
-                SizedBox(height: 12),
-                TravelTile(
-                  name: 'Thomas Anderson',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-1.avif'),
-                ),
-                SizedBox(height: 12),
-                TravelTile(
-                  name: 'Elizabeth Jones',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-2.avif'),
-                ),
-                SizedBox(height: 12),
-                TravelTile(
-                  name: 'Michael Williams',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-3.avif'),
-                ),
-                SizedBox(height: 12),
-                TravelTile(
-                  name: 'Susan Davis',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-4.avif'),
-                ),
-                SizedBox(height: 12),
-                TravelTile(
-                  name: 'Sarah Anderson',
-                  description:
-                      'I love immersing myself in new cultures, exploring historical.',
-                  imageCard: AssetImage('assets/images/profile-5.avif'),
-                ),
+              children:  [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 0.0),
+                  padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 22.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'England',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Icon(
+                        Icons.airplane_ticket,
+                        size: 24.0,
+                        color: Colors.grey[600],
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           )

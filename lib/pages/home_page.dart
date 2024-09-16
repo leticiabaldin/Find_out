@@ -232,21 +232,25 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ElevatedButton(
-                          onPressed: () => _dialogBuilder(context),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 64,
-                              vertical: 12,
+                        SizedBox(
+                          width: 325,
+                          child: ElevatedButton(
+                            onPressed: () => _dialogBuilder(context),
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 64,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                              backgroundColor: AppTravelColors.blueApp,
                             ),
-                            backgroundColor: AppTravelColors.blueApp,
-                          ),
-                          child: const Text(
-                            'Add New Travel',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                            child: const Text(
+                              'Add New Travel',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white),
+                            ),
                           ),
                         ),
                       ],
