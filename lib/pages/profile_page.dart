@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../colors/colors_travel.dart';
 import '../widgets/app_large_text.dart';
@@ -108,32 +109,30 @@ class _ProfilePageState extends State<ProfilePage> {
                     size: 24,
                   ),
                   const SizedBox(
-                    height: 0,
+                    height: 16,
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 0.0),
-                    padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 22.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      elevation: 1,
+                      fixedSize: const Size(325, 80),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: BorderSide.none,
+                      ),
                     ),
+                    onPressed: () {
+                      context.go('/listCountries');
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'England',
                           style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w700,
-                          ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: AppTravelColors.blueApp),
                         ),
                         Icon(
                           Icons.airplane_ticket,

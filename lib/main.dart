@@ -1,5 +1,7 @@
 import 'package:find_out_flutter/pages/add_destination_travel_page.dart';
+import 'package:find_out_flutter/pages/add_experience_page.dart';
 import 'package:find_out_flutter/pages/destination_selected_page.dart';
+import 'package:find_out_flutter/pages/list_countries_page.dart';
 import 'package:find_out_flutter/pages/share_travel_page.dart';
 import 'package:find_out_flutter/pages/create_account_page.dart';
 import 'package:find_out_flutter/pages/explore_page.dart';
@@ -96,6 +98,18 @@ final GoRouter _router = GoRouter(
           path: 'success',
           builder: (BuildContext context, GoRouterState state) {
             return const SuccessPage();
+          },
+        ),
+        GoRoute(
+          path: 'listCountries',
+          builder: (BuildContext context, GoRouterState state) {
+            return const ListCountriesPage();
+          },
+        ),
+        GoRoute(
+          path: 'addExperience',
+          builder: (BuildContext context, GoRouterState state) {
+            return const AddExperiencePage();
           },
         )
       ],

@@ -23,15 +23,21 @@ class _SuccessPageState extends State<SuccessPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: const Text('New destination successfully created!', style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-
-              ),),
+            Container(
+              width: 350,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+              child: const Text(
+                'New destination successfully created!',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            const SizedBox(height: 32,),
+            const SizedBox(
+              height: 32,
+            ),
             Image.asset('assets/images/success_image.png'),
           ],
         ),

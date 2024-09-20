@@ -42,14 +42,14 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               icon: const Icon(
                 Icons.add,
                 color: Colors.white,
-                size: 32,
+                size: 38,
               ),
               onPressed: () => context.go('/share'),
             ),
             IconButton(
               onPressed: () => context.go('/explorer'),
               icon: const Icon(
-                Icons.image_rounded,
+                Icons.favorite_border,
                 color: Colors.white,
                 size: 32,
               ),
