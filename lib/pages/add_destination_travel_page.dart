@@ -71,26 +71,7 @@ class AddDestinationState extends State<AddDestinationPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTravelColors.greyApp,
-                elevation: 1,
-                fixedSize: const Size(128, 128),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  side: BorderSide.none,
-                ),
-              ),
-              child: const Icon(
-                Icons.add,
-                size: 62,
-                weight: 3,
-                color: AppTravelColors.blueApp,
-              ),
-            ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 60),
             // Dropdowns dinâmicos de País, Estado e Cidade
             Form(
               key: formKey,

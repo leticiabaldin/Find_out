@@ -40,6 +40,8 @@ class _ListCountriesPageState extends State<ListCountriesPage> {
     // Recuperar o nome do país passado como parâmetro na navegação
     final countryName = GoRouterState.of(context).extra as String?;
 
+    print("TESTEEEEE: $countryName");
+
     if (countryName != null && occurrences.isEmpty && !loading) {
       getOccurrences(countryName);
     }
@@ -83,7 +85,7 @@ class _ListCountriesPageState extends State<ListCountriesPage> {
                               ),
                             ),
                             onPressed: () {
-                              context.go('/addDestination', extra: countryName);
+                              context.go('/addExperience', extra: countryName);
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

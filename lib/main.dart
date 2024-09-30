@@ -109,7 +109,10 @@ final GoRouter _router = GoRouter(
         GoRoute(
           path: 'addExperience',
           builder: (BuildContext context, GoRouterState state) {
-            return const AddExperiencePage();
+            // Captura o valor de 'countryName' passado na navegação
+            final countryName = state.extra as String? ?? ''; // Verifica se o valor é nulo e define como vazio se for
+
+            return AddExperiencePage(countryName: countryName);
           },
         )
       ],

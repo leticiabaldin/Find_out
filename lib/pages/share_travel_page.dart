@@ -163,7 +163,7 @@ class CountryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Navega para a rota '/addExperience' quando o cartão for clicado
-        context.go('/listCountries');
+        context.go('/listCountries', extra: country.country);
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 6.0),
