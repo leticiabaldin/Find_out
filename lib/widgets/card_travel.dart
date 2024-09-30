@@ -6,20 +6,21 @@ import 'app_text.dart';
 class CardTravel extends StatelessWidget {
   final String titleCard;
   final AssetImage imageCard;
-  final String description;
+
 
   const CardTravel({
     Key? key,
     required this.titleCard,
     required this.imageCard,
-    required this.description,
+
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 32),
+      margin: const EdgeInsets.only(bottom: 32,right: 6,left:6),
       elevation: 8,
+      color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
@@ -40,7 +41,8 @@ class CardTravel extends StatelessWidget {
           ), */
           Container(
             margin: const EdgeInsets.only(top: 16),
-            height: 360,
+            height: 350,
+            width: 265,
             child: Image(
               image: imageCard,
               fit: BoxFit.fill,
@@ -53,16 +55,6 @@ class CardTravel extends StatelessWidget {
               titleCard,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(
-              top: 0,
-              bottom: 10,
-              right: 6,
-              left: 10,
-            ),
-            child: AppText(
-                text: description),
           ),
         ],
       ),

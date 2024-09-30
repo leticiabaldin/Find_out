@@ -119,9 +119,16 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                         lastDate: DateTime(2030),
                         builder: (BuildContext context, Widget? child) {
                           return Theme(
-                            data: ThemeData.dark(),
-                            child: child!,
-                          );
+                              data: Theme.of(context).copyWith(
+                                colorScheme: const ColorScheme.light(
+                                  primary:
+                                      AppTravelColors.blueApp, // header background color
+                                  onPrimary: AppTravelColors.blueApp,
+                                  onSurface: AppTravelColors.blueApp,
+                                  // body text color
+                                ),
+                              ),
+                              child: child!);
                         });
                     selecioneUmaData.then((data) {
                       if (data != null) {
@@ -187,7 +194,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 onPressed: () {},
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
+                  children: [
                     Text(
                       'Next',
                       style: TextStyle(

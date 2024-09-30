@@ -92,13 +92,12 @@ class _ExplorerPageState extends State<ExplorerPage> {
                   height: 12,
                 ),
                   padding: const EdgeInsets.only(top: 24),
-                  itemCount: occurrences.length,
+                  itemCount: 4,
                   itemBuilder: (context, index) {
-                    final ocurrence = occurrences[index];
-                    return CardTravel(
-                      titleCard: '${ocurrence.place} | ${ocurrence.date}',
-                      imageCard: const AssetImage("assets/images/trip1.jpg"),
-                      description: ocurrence.description,
+                    return const CardTravel(
+                      titleCard: 'Londres | 17/08/2024',
+                      imageCard:  AssetImage("assets/images/trip2.jpg"),
+
                     );
                   },
                 ),

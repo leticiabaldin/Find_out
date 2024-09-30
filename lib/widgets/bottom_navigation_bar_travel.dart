@@ -18,6 +18,7 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
     return SizedBox(
       height: 100,
       child: BottomAppBar(
+        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 6),
         color: AppTravelColors.blueApp,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -27,14 +28,14 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               icon: const Icon(
                 Icons.home,
                 color: Colors.white,
-                size: 32,
+                size: 28,
               ),
             ),
             IconButton(
               icon: const Icon(
                 Icons.airplanemode_active_rounded,
                 color: Colors.white,
-                size: 32,
+                size: 28,
               ),
               onPressed: () => context.go('/travel'),
             ),
@@ -42,7 +43,7 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               icon: const Icon(
                 Icons.add,
                 color: Colors.white,
-                size: 38,
+                size: 32,
               ),
               onPressed: () => context.go('/share'),
             ),
@@ -51,7 +52,7 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               icon: const Icon(
                 Icons.favorite_border,
                 color: Colors.white,
-                size: 32,
+                size: 28,
               ),
             ),
             IconButton(
@@ -59,7 +60,7 @@ class _BottomNavigatorBarTravelState extends State<BottomNavigatorBarTravel> {
               icon: const Icon(
                 Icons.person,
                 color: Colors.white,
-                size: 32,
+                size: 28,
               ),
             ),
           ],
