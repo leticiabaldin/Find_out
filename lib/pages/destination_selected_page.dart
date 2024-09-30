@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-
 import '../colors/colors_travel.dart';
 import '../widgets/bottom_navigation_bar_travel.dart';
-import 'add_destination_travel_page.dart';
 
 class DestinationSelectedPage extends StatefulWidget {
   const DestinationSelectedPage({super.key});
@@ -14,12 +11,23 @@ class DestinationSelectedPage extends StatefulWidget {
 }
 
 class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
-  String dropdownValue = listCountry.first;
-  String dropdownValueState = listState.first;
+  // Definição das listas localmente
+  final List<String> listCountry = ['Brasil', 'EUA', 'Inglaterra'];
+  final List<String> listState = ['Flórida', 'Espirito Santo', 'Inglaterra'];
+
+  String dropdownValue = '';
+  String dropdownValueState = '';
+
+  @override
+  void initState() {
+    super.initState();
+    dropdownValue = listCountry.first;
+    dropdownValueState = listState.first;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       bottomNavigationBar: const BottomNavigatorBarTravel(),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -44,8 +52,7 @@ class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
                     ),
                     const Text(
                       'New Destination',
-                      style:
-                      TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                     ),
                   ],
                 ),
@@ -64,7 +71,6 @@ class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
               width: 325,
               label: const Text('Country'),
               onSelected: (String? value) {
-                // This is called when the user selects an item.
                 setState(() {
                   dropdownValue = value!;
                 });
@@ -80,7 +86,6 @@ class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
               width: 325,
               label: const Text('State'),
               onSelected: (String? value) {
-                // This is called when the user selects an item.
                 setState(() {
                   dropdownValueState = value!;
                 });
@@ -96,7 +101,6 @@ class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
               width: 325,
               label: const Text('City'),
               onSelected: (String? value) {
-                // This is called when the user selects an item.
                 setState(() {
                   dropdownValueState = value!;
                 });
@@ -113,15 +117,18 @@ class _DestinationSelectedPageState extends State<DestinationSelectedPage> {
               child: ElevatedButton(
                 onPressed: () => context.go('/success'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTravelColors.blueApp,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12))),
+                  backgroundColor: AppTravelColors.blueApp,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 child: const Text(
                   'Confirm',
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
