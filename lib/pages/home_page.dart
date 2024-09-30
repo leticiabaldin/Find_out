@@ -235,7 +235,9 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           width: 325,
                           child: ElevatedButton(
-                            onPressed: () => _dialogBuilder(context),
+                            onPressed: () => {
+                              context.go("/share")
+                            },
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 64,

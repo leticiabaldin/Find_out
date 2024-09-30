@@ -19,7 +19,7 @@ class AddExperiencePage extends StatefulWidget {
 class _AddExperiencePageState extends State<AddExperiencePage> {
   bool loading = false;
   final dateController = TextEditingController();
-  final placeController = TextEditingController();
+  final titleController = TextEditingController();
   final descriptionController = TextEditingController();
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -27,17 +27,15 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
   @override
   void initState() {
     super.initState();
-    // Inicializa o campo place com o nome do país recebido
-    placeController.text = widget.countryName;
   }
 
   Future<void> createTravel() async {
     if (loading) return;
     setState(() => loading = true);
 
-    final place = placeController.text.trim();
     final date = dateController.text.trim();
     final description = descriptionController.text.trim();
+    final title = titleController.text;
     final fireAuth = FirebaseAuth.instance;
     final firestore = FirebaseFirestore.instance;
     final id = fireAuth.currentUser!.uid;
@@ -48,13 +46,13 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
       "place": widget.countryName,
       "date": date,
       "description": description,
+      "title": title,
       "id": id,
     };
 
     final collection = firestore.collection("occurrences/$id/history");
     await collection.add(data);
 
-    placeController.clear();
     dateController.clear();
     descriptionController.clear();
 
@@ -115,7 +113,13 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 ],
               ),
               const SizedBox(height: 24),
-              TextFormFieldTravel(text: 'Title'),
+              TextFormField(
+                controller: titleController,
+                decoration: InputDecoration(
+                  labelText: "Title",
+                  border: OutlineInputBorder(),
+                ),
+              ),
               const SizedBox(height: 10),
               // Campo de data
               TextFormField(
@@ -195,6 +199,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     createTravel();
+                    context.go('/explorer');
                   }
                 },
                 child: const Row(
