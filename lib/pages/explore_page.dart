@@ -29,7 +29,7 @@ class _ExplorerPageState extends State<ExplorerPage> {
     final id = user.uid;
     final firestore = FirebaseFirestore.instance;
     //conecta coma  collection do firebase
-    final collection = firestore.collection("occurrences/$id/history").orderBy(
+    final collection = firestore.collection("occurrences").orderBy(
           "date",
           descending: true,
         );

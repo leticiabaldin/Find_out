@@ -41,7 +41,7 @@ class _DialogTravelState extends State<DialogTravel> {
       "id": id,
     };
 
-    final collection = firestore.collection("occurrences/$id/history");
+    final collection = firestore.collection("occurrences/history");
     await collection.add(data);
 
     placeController.clear();

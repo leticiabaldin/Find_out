@@ -26,6 +26,8 @@ class AddDestinationState extends State<AddDestinationPage> {
   Future<void> createCountry() async {
     if (loading) return;
     setState(() => loading = true);
+    final fireAuth = FirebaseAuth.instance;
+    final id = fireAuth.currentUser!.uid;
 
     final firestore = FirebaseFirestore.instance;
 
@@ -38,7 +40,7 @@ class AddDestinationState extends State<AddDestinationPage> {
     };
 
     // Adiciona diretamente na coleção "paises"
-    final collection = firestore.collection("paises");
+    final collection = firestore.collection("paises/$id/history");
     await collection.add(data);
 
     setState(() => loading = false);

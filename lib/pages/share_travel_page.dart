@@ -30,8 +30,9 @@ class _AddTravelState extends State<AddTravelPage> {
     setState(() => loading = true);
 
     final firestore = FirebaseFirestore.instance;
+    final id = fireAuth.currentUser!.uid;
     // Conecta com a collection do Firestore
-    final collection = firestore.collection("paises");
+    final collection = firestore.collection("paises/$id/history");
 
     final result = await collection.get();
 
@@ -95,7 +96,7 @@ class _AddTravelState extends State<AddTravelPage> {
                 ? CircularProgressIndicator() // Mostra um indicador de carregamento
                 : Expanded(
                     child: ListView.builder(
-                      itemCount: occurrences.length - 1,
+                      itemCount: occurrences.length,
                       itemBuilder: (context, index) {
                         final country = occurrences[index];
                         return CountryCard(country: country);

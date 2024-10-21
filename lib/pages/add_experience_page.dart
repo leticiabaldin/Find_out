@@ -50,7 +50,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
       "id": id,
     };
 
-    final collection = firestore.collection("occurrences/$id/history");
+    final collection = firestore.collection("occurrences");
     await collection.add(data);
 
     dateController.clear();

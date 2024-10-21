@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,9 +21,11 @@ class _ListCountriesPageState extends State<ListCountriesPage> {
   // Função para buscar os dados do Firestore para o país específico
   Future<void> getOccurrences(String countryName) async {
     setState(() => loading = true);
+    final fireAuth = FirebaseAuth.instance;
+    final id = fireAuth.currentUser!.uid;
 
     final firestore = FirebaseFirestore.instance;
-    final collection = firestore.collection("paises");
+    final collection = firestore.collection("paises/$id/history");
 
     // Consultar apenas os documentos onde o país é igual ao passado
     final result = await collection.where('country', isEqualTo: countryName).get();
