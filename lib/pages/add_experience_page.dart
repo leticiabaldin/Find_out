@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import '../widgets/bottom_navigation_bar_travel.dart';
 import '../widgets/text_form_field_travel.dart';
 
 class AddExperiencePage extends StatefulWidget {
-  final String countryName; // País passado na navegação
+  final String countryName;
 
   const AddExperiencePage({super.key, required this.countryName});
 
@@ -21,13 +22,13 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
   final dateController = TextEditingController();
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
   }
+
 
   Future<void> createTravel() async {
     if (loading) return;
@@ -48,6 +49,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
       "description": description,
       "title": title,
       "id": id,
+
     };
 
     final collection = firestore.collection("occurrences");
@@ -93,7 +95,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _navigateToSelectImage,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTravelColors.greyApp,
                       elevation: 1,
@@ -109,7 +111,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                       weight: 3,
                       color: AppTravelColors.blueApp,
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 24),
@@ -121,7 +123,6 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // Campo de data
               TextFormField(
                 controller: dateController,
                 validator: (value) {
@@ -166,7 +167,6 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 readOnly: true,
               ),
               const SizedBox(height: 10),
-              // Campo de descrição
               TextFormField(
                 controller: descriptionController,
                 validator: (value) {
@@ -177,7 +177,7 @@ class _AddExperiencePageState extends State<AddExperiencePage> {
                 },
                 decoration: InputDecoration(
                   contentPadding:
-                      const EdgeInsets.symmetric(vertical: 0, horizontal: 24),
+                  const EdgeInsets.symmetric(vertical: 0, horizontal: 24),
                   fillColor: AppTravelColors.greyApp,
                   labelText: 'Description',
                   labelStyle: const TextStyle(

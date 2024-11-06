@@ -12,14 +12,19 @@ import 'package:find_out_flutter/pages/success_page.dart';
 import 'package:find_out_flutter/pages/team_page.dart';
 import 'package:find_out_flutter/pages/travel_page.dart';
 import 'package:find_out_flutter/pages/welcome_page.dart';
+import 'package:find_out_flutter/pages/select_image_page.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:file_picker/file_picker.dart';
+
 
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await FilePicker.platform;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -104,6 +109,12 @@ final GoRouter _router = GoRouter(
           path: 'listCountries',
           builder: (BuildContext context, GoRouterState state) {
             return const ListCountriesPage();
+          },
+        ),
+        GoRoute(
+          path: 'selectImage',
+          builder: (BuildContext context, GoRouterState state) {
+            return FileUploadScreen();
           },
         ),
         GoRoute(

@@ -41,7 +41,7 @@ class _ExplorerPageState extends State<ExplorerPage> {
             doc.data()['date'],
             doc.data()['description'],
             doc.id,
-            doc.data()['place']
+            doc.data()['place'],
           ),
         )
         .toList();

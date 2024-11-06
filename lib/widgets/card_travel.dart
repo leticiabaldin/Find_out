@@ -5,13 +5,13 @@ import 'app_text.dart';
 
 class CardTravel extends StatelessWidget {
   final String titleCard;
-  final AssetImage imageCard;
+ // final String? imageCard; // Agora aceita uma URL opcional
   final String description;
 
   const CardTravel({
     Key? key,
     required this.titleCard,
-    required this.imageCard,
+    //this.imageCard, // URL opcional da imagem
     required this.description,
   }) : super(key: key);
 
@@ -25,25 +25,16 @@ class CardTravel extends StatelessWidget {
       ),
       child: Column(
         children: [
-/*           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite,
-                  size: 28,
-                  color: AppTravelColors.blueApp,
-                ),
-              ),
-            ],
-          ), */
           Container(
             margin: const EdgeInsets.only(top: 16),
             height: 360,
-            child: Image(
-              image: imageCard,
-              fit: BoxFit.fill,
+            child: Image.network(
+              "assets/images/trip1.jpg",
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Image.asset(
+                "assets/images/trip1.jpg",
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Container(
@@ -61,8 +52,7 @@ class CardTravel extends StatelessWidget {
               right: 6,
               left: 10,
             ),
-            child: AppText(
-                text: description),
+            child: AppText(text: description),
           ),
         ],
       ),
